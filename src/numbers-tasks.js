@@ -290,8 +290,9 @@ function toNumber(value, def) {
  *   -2 => -8
  *   0  => 0
  */
-function getCube(/* num */) {
-  throw new Error('Not implemented');
+function getCube(num) {
+  // throw new Error('Not implemented');
+  return num ** 3;
 }
 
 /**
@@ -307,8 +308,12 @@ function getCube(/* num */) {
  *   3  => 2
  *   10 => 55
  */
-function getFibonacciNumber(/* index */) {
-  throw new Error('Not implemented');
+function getFibonacciNumber(index) {
+  // throw new Error('Not implemented');
+  if (index <= 1) {
+    return index;
+  }
+  return getFibonacciNumber(index - 2) + getFibonacciNumber(index - 1);
 }
 
 /**
@@ -322,8 +327,11 @@ function getFibonacciNumber(/* index */) {
  *   10 => 55 // (1+2+3+...+10)
  *   1  => 1
  */
-function getSumToN(/* n */) {
-  throw new Error('Not implemented');
+function getSumToN(n) {
+  // throw new Error('Not implemented');
+  const arr = [...Array(n + 1).keys()];
+  const output = arr.reduce((acc, el) => acc + el, 0);
+  return output;
 }
 
 /**
@@ -337,8 +345,10 @@ function getSumToN(/* n */) {
  *   202 => 4  // (2+0+2)
  *   5   => 5  // 5
  */
-function getSumOfDigits(/* num */) {
-  throw new Error('Not implemented');
+function getSumOfDigits(num) {
+  // throw new Error('Not implemented');
+  const arr = Array.from(String(num)).map((el) => Number(el));
+  return arr.reduce((acc, el) => acc + el, 0);
 }
 
 /**
@@ -352,8 +362,13 @@ function getSumOfDigits(/* num */) {
  *   16  => true
  *   15  => false
  */
-function isPowerOfTwo(/* num */) {
-  throw new Error('Not implemented');
+function isPowerOfTwo(num) {
+  // throw new Error('Not implemented');
+  const log = Math.log2(num);
+  if (Number.isInteger(log)) {
+    return true;
+  }
+  return false;
 }
 
 /**
@@ -381,8 +396,9 @@ function getSine(/* num */) {
  * 255, 16 => 'ff'
  * 2, 2    => '10'
  */
-function numberToStringInBase(/* number, base */) {
-  throw new Error('Not implemented');
+function numberToStringInBase(number, base) {
+  // throw new Error('Not implemented');
+  return number.toString(base);
 }
 
 /**
