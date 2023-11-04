@@ -117,8 +117,12 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (0,1)     => 0
  *   (0,1) (1,2)     => 0
  */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  // throw new Error('Not implemented');
+  const scal = x1 * y1 + x2 * y2;
+  const module1 = Math.sqrt(x1 ** 2 + y1 ** 2);
+  const module2 = Math.sqrt(x2 ** 2 + y2 ** 2);
+  return scal / (module1 * module2);
 }
 
 /**
@@ -133,8 +137,11 @@ function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
  *     5     => 5
  *     0     => 0
  */
-function getLastDigit(/* value */) {
-  throw new Error('Not implemented');
+function getLastDigit(value) {
+  // throw new Error('Not implemented');
+  const str = value.toString();
+  const num = Number(str.slice(-1));
+  return num;
 }
 
 /**
@@ -148,8 +155,9 @@ function getLastDigit(/* value */) {
  *     '37'     => 37
  * '-525.5'     => -525.5
  */
-function parseNumberFromString(/* value */) {
-  throw new Error('Not implemented');
+function parseNumberFromString(value) {
+  // throw new Error('Not implemented');
+  return Number(value);
 }
 
 /**
@@ -165,8 +173,10 @@ function parseNumberFromString(/* value */) {
  *   3,3,3   => 5.196152422706632
  *   1,2,3   => 3.741657386773941
  */
-function getParallelepipedDiagonal(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getParallelepipedDiagonal(a, b, c) {
+  // throw new Error('Not implemented');
+  const diagLength = Math.sqrt(a ** 2 + b ** 2 + c ** 2);
+  return diagLength;
 }
 
 /**
@@ -186,8 +196,39 @@ function getParallelepipedDiagonal(/* a, b, c */) {
  *   1678, 2  => 1700
  *   1678, 3  => 2000
  */
-function roundToPowerOfTen(/* num, pow */) {
-  throw new Error('Not implemented');
+function roundToPowerOfTen(num, pow) {
+  // throw new Error('Not implemented');
+  const arr = Array.from(String(num)).map((el) => Number(el));
+  const shiftChar = arr.slice(0, arr.length - pow);
+  let output;
+  let outputNum;
+  if (pow === 0) {
+    outputNum = arr;
+  }
+  if (arr[arr.length - pow] >= 5 && shiftChar.length > 1) {
+    output = String(arr)
+      .replace(
+        shiftChar[shiftChar.length - 1],
+        shiftChar[shiftChar.length - 1] + 1
+      )
+      .split(',')
+      .join('');
+    outputNum = Array.from(output).fill(0, arr.length - pow);
+  } else if (arr[arr.length - pow] >= 5) {
+    output = String(arr)
+      .replace(shiftChar[0], shiftChar[0] + 1)
+      .split(',')
+      .join('');
+    outputNum = Array.from(output).fill(0, arr.length - pow);
+  } else if (arr[arr.length - pow] < 5 && shiftChar.length > 1) {
+    output = String(arr).split(',').join('');
+    outputNum = Array.from(output).fill(0, arr.length - pow);
+  } else if (arr[arr.length - pow] < 5) {
+    output = String(arr).split(',').join('');
+    outputNum = Array.from(output).fill(0, arr.length - pow);
+  }
+  const endoutput = Number(String(outputNum).split(',').join(''));
+  return endoutput;
 }
 
 /**
@@ -226,8 +267,16 @@ function isPrime(/* n */) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  // throw new Error('Not implemented');
+  const num = Number(value);
+  let output;
+  if (num) {
+    output = num;
+  } else if (!num) {
+    output = def;
+  }
+  return output;
 }
 
 /**
