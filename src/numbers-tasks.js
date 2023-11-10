@@ -411,8 +411,9 @@ function numberToStringInBase(number, base) {
  * @example:
  * 12345, 2    => '1.23e+4'
  */
-function toExponential(/* number, fractionDigits */) {
-  throw new Error('Not implemented');
+function toExponential(number, fractionDigits) {
+  // throw new Error('Not implemented');
+  return Number.parseFloat(number).toExponential(fractionDigits);
 }
 
 /**
@@ -426,15 +427,16 @@ function toExponential(/* number, fractionDigits */) {
  * 12345, 2    => '12345.00'
  * 12.345, 1   => '12.3'
  */
-function toFixed(/* number, fractionDigits */) {
-  throw new Error('Not implemented');
+function toFixed(number, fractionDigits) {
+  // throw new Error('Not implemented');
+  return number.toFixed(fractionDigits);
 }
 
 /**
  * Returns a string representation of a number in normal (fixed-point or exponential)
  * notation rounded to precision significant digits.
  *
- * @param {number} number
+ * @param {number} number1
  * @param {number} precision
  * @return {string}
  *
@@ -442,8 +444,9 @@ function toFixed(/* number, fractionDigits */) {
  * 12345, 7    => '12345.00'
  * 12.345, 4   => '12.35'
  */
-function toPrecision(/* number, precision */) {
-  throw new Error('Not implemented');
+function toPrecision(number, precision) {
+  // throw new Error('Not implemented');
+  return number.toPrecision(precision);
 }
 
 /**
@@ -456,8 +459,9 @@ function toPrecision(/* number, precision */) {
  * new Number(5) => 5
  * Number(-5)    => -5
  */
-function getNumberValue(/* number */) {
-  throw new Error('Not implemented');
+function getNumberValue(number) {
+  // throw new Error('Not implemented');
+  return number.valueOf();
 }
 
 /**
@@ -490,8 +494,9 @@ function isNumber(/* number */) {
  * 5.1  => false
  * '5'  => false
  */
-function isInteger(/* number */) {
-  throw new Error('Not implemented');
+function isInteger(number) {
+  // throw new Error('Not implemented');
+  return Number.isInteger(number);
 }
 
 /**
@@ -504,8 +509,9 @@ function isInteger(/* number */) {
  * '4.567abcdefgh' => 4.567
  * 'abcdefgh'      => NaN
  */
-function getFloatOnString(/* str */) {
-  throw new Error('Not implemented');
+function getFloatOnString(str) {
+  // throw new Error('Not implemented');
+  return Number.parseFloat(str) ? Number.parseFloat(str) : NaN;
 }
 
 /**
@@ -522,8 +528,9 @@ function getFloatOnString(/* str */) {
  * '1.234', 2           => 1
  * '10', 8              => 1
  */
-function getIntegerOnString(/* str, base */) {
-  throw new Error('Not implemented');
+function getIntegerOnString(str, base) {
+  // throw new Error('Not implemented');
+  return Number.parseInt(str, base) ? Number.parseInt(str, base) : NaN;
 }
 
 /**
@@ -537,8 +544,9 @@ function getIntegerOnString(/* str, base */) {
  * 3.5      => false
  * 2 ** 53  => false
  */
-function isSafeInteger(/* number */) {
-  throw new Error('Not implemented');
+function isSafeInteger(number) {
+  // throw new Error('Not implemented');
+  return Number.isSafeInteger(number);
 }
 
 /**
@@ -551,8 +559,9 @@ function isSafeInteger(/* number */) {
  * 5.9  => 5
  * -5.1 => -6
  */
-function roundToSmallestInteger(/* number */) {
-  throw new Error('Not implemented');
+function roundToSmallestInteger(number) {
+  // throw new Error('Not implemented');
+  return Math.floor(number);
 }
 
 /**
@@ -565,8 +574,9 @@ function roundToSmallestInteger(/* number */) {
  * 5.1  => 6
  * -5.9 => -5
  */
-function roundToLargestInteger(/* number */) {
-  throw new Error('Not implemented');
+function roundToLargestInteger(number) {
+  // throw new Error('Not implemented');
+  return Math.ceil(number);
 }
 
 /**
@@ -580,8 +590,9 @@ function roundToLargestInteger(/* number */) {
  * 5.4  => 5
  * -5.5 => -5
  */
-function roundToNearestInteger(/* number */) {
-  throw new Error('Not implemented');
+function roundToNearestInteger(number) {
+  // throw new Error('Not implemented');
+  return Math.round(number);
 }
 
 /**
@@ -595,8 +606,9 @@ function roundToNearestInteger(/* number */) {
  * 5.4  => 5
  * -5.5 => -5
  */
-function getIntegerPartNumber(/* number */) {
-  throw new Error('Not implemented');
+function getIntegerPartNumber(number) {
+  // throw new Error('Not implemented');
+  return Math.trunc(number);
 }
 
 /**
@@ -611,8 +623,10 @@ function getIntegerPartNumber(/* number */) {
  * 1, 2, 3       => 6
  * 0.1, 0.2, 0.3 => 0.6
  */
-function getSumOfNumbers(/* x1, x2, x3 */) {
-  throw new Error('Not implemented');
+function getSumOfNumbers(...args) {
+  // throw new Error('Not implemented');
+  const number = args.reduce((acc, el) => acc + el, 0);
+  return number.toFixed(1);
 }
 
 /**
@@ -627,8 +641,9 @@ function getSumOfNumbers(/* x1, x2, x3 */) {
  * -5, -6 => -5
  * 0, 5   => 5
  */
-function getMaxNumber(/* firstNumber, secondNumber */) {
-  throw new Error('Not implemented');
+function getMaxNumber(firstNumber, secondNumber) {
+  // throw new Error('Not implemented');
+  return Math.max(firstNumber, secondNumber);
 }
 
 /**
@@ -643,8 +658,10 @@ function getMaxNumber(/* firstNumber, secondNumber */) {
  * -5, 0 => -5 | -4 | -3 | -2 | -1 | 0
  * -1, 1 => -1 | 0 | 1
  */
-function getRandomInteger(/* min, max */) {
-  throw new Error('Not implemented');
+function getRandomInteger(min, max) {
+  // throw new Error('Not implemented');
+  const random = Math.random() * (max - min) + min;
+  return Math.trunc(random);
 }
 
 /**
@@ -659,6 +676,9 @@ function getRandomInteger(/* min, max */) {
  */
 function getHypotenuse(/* a, b */) {
   throw new Error('Not implemented');
+  // return a === Number.MAX_VALUE || b === Number.MAX_VALUE
+  //   ? Number.MAX_VALUE
+  //   : Math.sqrt(a ** 2 + b ** 2);
 }
 
 /**
