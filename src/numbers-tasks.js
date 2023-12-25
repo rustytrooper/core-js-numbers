@@ -381,8 +381,9 @@ function isPowerOfTwo(num) {
  *   0 => 0
  *   Math.PI / 2 => 1
  */
-function getSine(/* num */) {
-  throw new Error('Not implemented');
+function getSine(num) {
+  // throw new Error('Not implemented');
+  return Math.sin(num);
 }
 
 /**
@@ -479,8 +480,12 @@ function getNumberValue(number) {
  * 5        => true
  * '5'      => false
  */
-function isNumber(/* number */) {
-  throw new Error('Not implemented');
+function isNumber(number) {
+  // throw new Error('Not implemented');
+  if (Number.isFinite(number)) {
+    return true;
+  }
+  return false;
 }
 
 /**
@@ -694,8 +699,16 @@ function getHypotenuse(/* a, b */) {
  * 10 => 5
  * 15 => 8
  */
-function getCountOfOddNumbers(/* number */) {
-  throw new Error('Not implemented');
+function getCountOfOddNumbers(number) {
+  // throw new Error('Not implemented');
+  const arr = [...Array(number + 1).keys()];
+  let count = 0;
+  for (let i = 0; i <= arr.length; i += 1) {
+    if (arr[i] % 2 !== 0) {
+      count += 1;
+    }
+  }
+  return count;
 }
 
 module.exports = {
